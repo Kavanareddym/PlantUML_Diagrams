@@ -1,0 +1,19 @@
+@startuml ATM_Activity
+start
+:Insert Card;
+:Enter PIN;
+if (PIN Valid?) then (YES)
+  :Select Withdraw;
+  :Enter Amount;
+  if (Sufficient Balance?) then (YES)
+    :Dispense Cash;
+    :Print Receipt;
+  else (N O)
+    :Display Error;
+  endif
+else (N O)
+  :Display Error;
+endif
+:Eject Card;
+stop
+@enduml

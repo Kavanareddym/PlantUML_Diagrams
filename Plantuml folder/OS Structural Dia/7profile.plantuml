@@ -1,0 +1,23 @@
+@startuml
+skinparam backgroundColor #FDFDFD
+skinparam defaultFontName Arial
+
+' Define the stereotype directly in class declarations
+package "Entities" {
+    class User <<Entity>>
+    class Product <<Entity>>
+}
+
+package "Services" {
+    class CartService <<Service>>
+}
+
+package "Controllers" {
+    class OrderController <<Controller>>
+}
+
+' Define dependencies between classes
+User -[hidden]-> Product
+CartService -[hidden]-> OrderController
+
+@enduml

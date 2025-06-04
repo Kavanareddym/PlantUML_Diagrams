@@ -1,0 +1,47 @@
+@startuml
+
+skinparam backgroundColor #FAFAFA
+skinparam classFontName Arial
+
+' Define objects and their current values
+object customer1 {
+  name = "Ravi"
+  email = "ravi@example.com"
+}
+
+object product1 {
+  name = "Smartphone"
+  price = 15000
+  stock = 20
+}
+
+object item1 {
+  product = product1
+  quantity = 2
+}
+
+object cart1 {
+  customer = customer1
+  items = item1
+}
+
+object payment1 {
+  type = "UPI"
+  amount = 30000
+}
+
+object order1 {
+  customer = customer1
+  items = item1
+  payment = payment1
+  status = "Confirmed"
+}
+
+' Relationships
+customer1 -- cart1
+cart1 -- item1
+item1 -- product1
+order1 -- customer1
+order1 -- payment1
+
+@enduml

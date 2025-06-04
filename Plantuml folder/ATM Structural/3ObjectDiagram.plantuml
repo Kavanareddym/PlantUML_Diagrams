@@ -1,0 +1,40 @@
+@startuml
+skinparam object {
+  BackgroundColor #FFFFFF
+  BorderColor #000000
+  FontColor black
+}
+
+object user {
+  name = "Rahul"
+  hasCard = true
+}
+
+object atm {
+  status = "Processing"
+  location = "Bangalore"
+}
+
+object cardReader {
+  cardInserted = true
+}
+
+object bankNetwork {
+  connected = true
+}
+
+object cashDispenser {
+  cashAvailable = 20000
+}
+
+object printer {
+  ready = true
+}
+
+user --> atm : uses
+atm --> cardReader : accesses
+atm --> bankNetwork : connects to
+atm --> cashDispenser : dispenses
+atm --> printer : prints to
+
+@enduml

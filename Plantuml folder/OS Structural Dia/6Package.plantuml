@@ -1,0 +1,17 @@
+@startuml
+skinparam backgroundColor #FDFDFD
+skinparam packageStyle rectangle
+skinparam defaultFontName Arial
+
+package "User Management" as UM
+package "Product Catalog" as PC
+package "Shopping Cart" as SC
+package "Order Management" as OM
+package "Payment System" as PS
+
+UM --> SC : adds items
+SC --> PC : gets products
+UM --> OM : places order
+OM --> PS : processes payment
+
+@enduml

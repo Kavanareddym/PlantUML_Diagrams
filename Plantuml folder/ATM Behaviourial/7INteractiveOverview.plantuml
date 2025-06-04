@@ -1,0 +1,32 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam defaultFontName Arial
+
+state "Power On" as start
+state "Insert Card" as insert_card
+state "Enter PIN" as enter_pin
+state "Verify PIN" as verify_pin
+state "Select Transaction" as select_transaction
+state "Enter Amount" as enter_amount
+state "Verify Funds" as verify_funds
+state "Process Transaction" as process_transaction
+state "Dispense Cash" as dispense_cash
+state "Print Receipt" as print_receipt
+state "Return Card" as return_card
+state "Take Card" as take_card
+state "Idle" as end
+
+start --> insert_card
+insert_card --> enter_pin
+enter_pin --> verify_pin
+verify_pin --> select_transaction
+select_transaction --> enter_amount
+enter_amount --> verify_funds
+verify_funds --> process_transaction
+process_transaction --> dispense_cash
+dispense_cash --> print_receipt
+print_receipt --> return_card
+return_card --> take_card
+take_card --> end
+
+@enduml

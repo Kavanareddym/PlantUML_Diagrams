@@ -1,0 +1,24 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+skinparam defaultFontName Arial
+skinparam state {
+    BackgroundColor #FDF6E3
+    BorderColor #B2B2B2
+    FontName Arial
+    FontSize 12
+    Padding 20
+}
+
+[*] --> reading_card
+reading_card --> reading_pin : Card read successfully
+reading_card --> ejecting_card : Invalid Card
+reading_pin --> choosing_transaction : Getting valid pin
+reading_pin --> ejecting_card : Invalid Pin
+choosing_transaction --> performing_transaction : Transaction chosen
+performing_transaction --> ejecting_card : Finished transaction
+performing_transaction --> choosing_transaction : Another transaction
+choosing_transaction --> ejecting_card : Cancel transaction
+ejecting_card --> [*]
+
+@enduml

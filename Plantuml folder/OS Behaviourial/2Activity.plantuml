@@ -1,0 +1,33 @@
+@startuml
+start
+
+:User Login;
+if (Login successful?) then (yes)
+  :Browse Items;
+
+  :Select Item;
+  :Add to Cart;
+
+  while (More items?) is (yes)
+    :Select Item;
+    :Add to Cart;
+  endwhile
+
+  :Proceed to Checkout;
+  :Enter Shipping and Payment Details;
+
+  if (Payment Successful?) then (yes)
+    :Order Confirmed;
+  else (no)
+    :Payment Failed;
+    :Retry Checkout;
+  endif
+
+  :Logout;
+else (no)
+  :Login Failed;
+  :Retry Login;
+endif
+
+stop
+@enduml

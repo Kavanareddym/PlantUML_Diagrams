@@ -1,0 +1,22 @@
+@startuml
+skinparam backgroundColor #FDFDFD
+skinparam componentStyle rectangle
+
+package "Online Shopping System" {
+  
+  [User Interface] --> [Authentication Service]
+  [User Interface] --> [Product Catalog Service]
+  [User Interface] --> [Cart Service]
+  [User Interface] --> [Order Service]
+
+  [Order Service] --> [Payment Module]
+  [Order Service] --> [Inventory Service]
+  [Order Service] --> [Database]
+
+  [Cart Service] --> [Database]
+  [Product Catalog Service] --> [Database]
+  [Authentication Service] --> [Database]
+  [Payment Module] --> [Payment Gateway API]
+}
+
+@enduml

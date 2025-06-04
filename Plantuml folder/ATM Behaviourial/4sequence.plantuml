@@ -1,0 +1,25 @@
+@startuml ATM_Sequence 
+
+actor Customer 
+
+participant ATM 
+
+participant BankServer 
+
+Customer -> ATM : insertCard() 
+
+Customer -> ATM : enterPIN() 
+
+ATM -> BankServer : validatePIN() 
+
+BankServer --> ATM : PIN OK 
+
+Customer -> ATM : selectWithdraw() 
+
+ATM -> BankServer : authorizeTransaction() 
+
+BankServer --> ATM : approved 
+
+ATM -> Customer : dispenseCash() 
+
+@enduml 

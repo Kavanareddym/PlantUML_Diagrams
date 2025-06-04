@@ -1,0 +1,62 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam classFontName Arial
+
+' Classes
+class Customer {
+  - customerId: int
+  - name: String
+  - email: String
+  - address: String
+  - phone: String
+  + register()
+  + login()
+  + updateProfile()
+}
+
+class Product {
+  - productId: int
+  - name: String
+  - description: String
+  - price: double
+  - stock: int
+  + viewDetails()
+}
+
+class Cart {
+  - cartId: int
+  - items: List<Item>
+  + addItem(product: Product, quantity: int)
+  + removeItem(product: Product)
+  + viewCart()
+}
+
+class Item {
+  - quantity: int
+  + calculateSubtotal(): double
+}
+
+class Order {
+  - orderId: int
+  - orderDate: Date
+  - status: String
+  + placeOrder()
+  + cancelOrder()
+}
+
+class Payment {
+  - paymentId: int
+  - paymentType: String
+  - amount: double
+  + processPayment()
+}
+
+' Relationships
+Customer "1" -- "1" Cart
+Customer "1" -- "0..*" Order
+Cart "1" -- "0..*" Item
+Item "1" -- "1" Product
+Order "1" -- "1" Payment
+
+@enduml

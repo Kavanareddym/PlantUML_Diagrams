@@ -1,0 +1,36 @@
+@startuml
+
+skinparam defaultFontName Arial
+
+
+state "Login" as login
+state "Validate Credentials" as validate
+state "Browse Items" as browse
+state "Add to Cart" as cart
+state "Checkout" as checkout
+state "Enter Shipping Details" as shipping
+state "Enter Payment Details" as payment
+state "Process Payment" as process
+state "Create Order" as create
+state "Confirm Order" as confirm
+state "Payment Failed" as failed
+state "Retry Payment" as retry
+state "End" as end
+
+login --> validate
+validate --> browse
+browse --> cart
+cart --> checkout
+checkout --> shipping
+shipping --> payment
+payment --> process
+
+process --> create : payment successful
+process --> failed : payment failed
+failed --> retry
+retry --> payment
+
+create --> confirm
+confirm --> end
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+actor Customer
+participant System
+participant Cart
+participant PaymentGateway
+participant Order
+
+
+Customer -> System : login()
+System -> Customer : show login screen
+Customer -> System : enter credentials
+System -> Customer : validate credentials
+Customer -> System : browse items()
+System -> Customer : display products
+Customer -> Cart : add item to cart()
+Cart -> Customer : item added
+Customer -> System : proceed to checkout()
+System -> Customer : enter shipping/payment details
+Customer -> PaymentGateway : process payment()
+PaymentGateway -> Customer : payment success
+Customer -> Order : create order()
+Order -> Customer : order confirmed
+@enduml

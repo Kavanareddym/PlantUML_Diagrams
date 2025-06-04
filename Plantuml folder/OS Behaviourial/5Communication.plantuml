@@ -1,0 +1,26 @@
+@startuml
+skinparam backgroundColor #EEE
+skinparam objectAlignment top
+skinparam handwritten false
+
+object Customer
+object Product
+object Cart
+object Order
+object PaymentGateway
+
+Customer -- Cart : adds
+
+Cart -- Product : contains
+
+Customer -- Order : creates
+
+Order -- PaymentGateway : processes
+
+Customer -right-> Cart : 1: addItem(product)
+Cart -left-> Product : 1.1: getDetails()
+Customer -down-> Order : 2: createOrder(cart)
+Order -right-> PaymentGateway : 3: processPayment(amount)
+PaymentGateway -left-> Order : 3.1: paymentStatus
+
+@enduml

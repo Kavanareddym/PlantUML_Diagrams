@@ -1,0 +1,25 @@
+@startuml
+[*] --> Login : start
+
+Login --> Login_Failed : invalid credentials
+Login_Failed --> Login : retry login
+
+Login --> Browsing_Items : login successful
+
+Browsing_Items --> Adding_to_Cart : select item
+Adding_to_Cart --> Checkout : proceed to checkout
+Adding_to_Cart --> Browsing_Items : continue shopping
+
+Checkout --> Payment : enter payment details
+Payment --> Order_Confirmed : payment successful
+Payment --> Payment_Failed : payment failed
+Payment_Failed --> Checkout : retry checkout
+
+Order_Confirmed --> Logout : order placed
+Order_Confirmed --> Cancelled : user cancels
+Cancelled --> [*]
+
+Browsing_Items --> Logout : user logout
+Login --> Logout : user cancels login
+Logout --> [*]
+@enduml

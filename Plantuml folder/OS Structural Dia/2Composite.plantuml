@@ -1,0 +1,28 @@
+@startuml
+
+skinparam backgroundColor #F9F9F9
+skinparam classFontName Arial
+
+' Define the main system class
+class OnlineShoppingSystem {
+  +browseProducts()
+  +addToCart()
+  +placeOrder()
+  +makePayment()
+}
+
+' Define internal parts
+class CustomerService
+class ProductCatalog
+class CartManager
+class OrderManager
+class PaymentGateway
+
+' Composition relationships
+OnlineShoppingSystem *-- CustomerService : uses
+OnlineShoppingSystem *-- ProductCatalog : accesses
+OnlineShoppingSystem *-- CartManager : manages
+OnlineShoppingSystem *-- OrderManager : handles
+OnlineShoppingSystem *-- PaymentGateway : integrates
+
+@enduml

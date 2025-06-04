@@ -1,0 +1,51 @@
+@startuml
+skinparam class {
+    BackgroundColor white
+    BorderColor black
+    ArrowColor black
+    FontColor black
+}
+
+class ATM {
+    - location: String
+    - isActive: Boolean
+    + insertCard(): void
+    + ejectCard(): void
+    + processTransaction(): void
+}
+
+class Card {
+    - cardNumber: String
+    - expiryDate: String
+    - pin: String
+    + validatePIN(inputPIN: String): Boolean
+}
+
+class User {
+    - name: String
+    - userID: String
+    + authenticate(card: Card, pin: String): Boolean
+}
+
+class BankAccount {
+    - accountNumber: String
+    - balance: double
+    + withdraw(amount: double): Boolean
+    + deposit(amount: double): void
+    + checkBalance(): double
+}
+
+class Transaction {
+    - transactionID: String
+    - date: String
+    - amount: double
+    + execute(): Boolean
+}
+
+User --> Card 
+Card --> BankAccount 
+ATM --> Card 
+ATM --> Transaction 
+Transaction --> BankAccount 
+
+@enduml

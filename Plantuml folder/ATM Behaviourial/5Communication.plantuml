@@ -1,0 +1,29 @@
+@startuml
+skinparam object {
+  BackGroundColor yellow
+  BorderColor black
+}
+skinparam linetype orthogonal
+
+object "Bank Client" as User
+object "ATM Machine" as ATM
+object "Account" as Account
+object "Checking Account" as CheckingAccount
+object "Savings Account" as SavingsAccount
+
+User -> ATM : 1: Request Kind()
+ATM -> User : 2: Enter Kind()
+User -> ATM : 3: Request Amount()
+ATM -> User : 4: Enter Amount()
+ATM -> Account : 5: Process Transaction()
+Account -> CheckingAccount : 6: Withdraw from Checking Account()
+CheckingAccount --> Account : 7: Withdrawal Successful()
+SavingsAccount --> Account : 8: Withdrawal Successful()
+Account --> ATM : 9: Transaction Successful()
+ATM -> User : 10: Dispense Cash()
+User -> ATM : 11: Request Take Card()
+ATM -> User : 12: Take Card()
+User -> ATM : 13: Request Continuation()
+ATM -> User : 14: Terminate()
+User -> ATM : 15: Print Receipt()
+@enduml

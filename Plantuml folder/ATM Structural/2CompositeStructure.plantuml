@@ -1,0 +1,48 @@
+@startuml
+skinparam componentStyle uml2
+skinparam defaultTextAlignment center
+skinparam shadowing false
+
+' Composite ATM structure
+package "ATM System" {
+  
+  class ATM {
+    +insertCard()
+    +ejectCard()
+    +processTransaction()
+  }
+
+  class CardReader {
+    +readCard()
+  }
+
+  class Keypad {
+    +getPIN()
+  }
+
+  class Screen {
+    +displayMessage(msg: String)
+  }
+
+  class CashDispenser {
+    +dispenseCash(amount: double)
+  }
+
+  class BankNetwork {
+    +verifyAccount()
+    +transferFunds()
+  }
+
+  class Printer {
+    +printReceipt()
+  }
+
+  ATM *-- CardReader : part
+  ATM *-- Keypad : part
+  ATM *-- Screen : part
+  ATM *-- CashDispenser : part
+  ATM *-- Printer : part
+  ATM *-- BankNetwork : connectsTo
+
+}
+@enduml

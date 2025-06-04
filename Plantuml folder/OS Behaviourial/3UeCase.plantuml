@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+
+actor Customer as C
+actor Admin as A
+
+rectangle "Online Shopping System" {
+  (Register) as UC1
+  (Login) as UC2
+  (Browse Products) as UC3
+  (Add to Cart) as UC4
+  (Remove from Cart) as UC5
+  (Checkout) as UC6
+  (Track Order) as UC8
+  (Logout) as UC9
+  (Add Product) as UA1
+  (Update Product) as UA2
+  (Delete Product) as UA3
+  (View Orders) as UA4
+
+  C --> UC1
+  C --> UC2
+  C --> UC3
+  C --> UC4
+  C --> UC5
+  C --> UC6
+  C --> UC8
+  C --> UC9
+
+
+  A --> UC2
+  A --> UA1
+  A --> UA2
+  A --> UA3
+  A --> UA4
+}
+@enduml

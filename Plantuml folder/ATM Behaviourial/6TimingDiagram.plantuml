@@ -1,0 +1,56 @@
+@startuml
+' Set text and arrow color to black
+skinparam defaultTextAlignment left
+skinparam ParticipantFontColor black
+skinparam SequenceMessageFontColor black
+skinparam NoteFontColor black
+skinparam SequenceLifeLineBorderColor black
+skinparam SequenceLifeLineBackgroundColor white
+skinparam ArrowColor black
+
+participant User
+participant ATM
+participant Bank
+
+' Start Sequence with Power On
+User -> ATM : Power On
+activate ATM
+
+' Card Insertion
+User -> ATM : Insert Card (1s)
+ATM -> ATM : Reading Card (1s–3s)
+
+' PIN Entry
+ATM -> User : Enter PIN
+User -> ATM : PIN Entered (3s–8s)
+ATM -> ATM : Verifying PIN (8s–9s)
+
+' Transaction Type Selection
+ATM -> User : Select Transaction Type
+User -> ATM : Withdrawal Selected (9s–10s)
+
+' Amount Entry
+ATM -> User : Enter Amount
+User -> ATM : Amount Entered (10s–12s)
+
+' Verify Funds with Bank
+ATM -> Bank : Verify Funds (12s)
+activate Bank
+Bank --> ATM : Funds OK (15s)
+deactivate Bank
+
+' Transaction Processing
+ATM -> ATM : Processing Transaction (12s–15s)
+
+' Cash Dispensing
+ATM -> User : Dispensing Cash (15s–19s)
+
+' Receipt Printing
+ATM -> User : Printing Receipt (19s–21s)
+
+' Returning Card
+ATM -> User : Returning Card (21s)
+User -> ATM : Card Taken (21s–24s)
+deactivate ATM
+
+@enduml

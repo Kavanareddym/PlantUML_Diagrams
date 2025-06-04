@@ -1,0 +1,16 @@
+@startuml
+title Profile Diagram - ATM System
+
+' Simulated Profile: ATMProfile
+package "ATMProfile <<profile>>" {
+  class ATMComponent {
+    +version : String
+    +vendor : String
+  }
+
+  class BankService {
+    +secure : Boolean
+    +protocol : String
+  }
+}
+@enduml

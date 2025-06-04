@@ -1,0 +1,50 @@
+@startuml
+' Improved visual appearance
+skinparam sequenceArrowThickness 2
+skinparam participantMargin 30
+skinparam lifelineMargin 20
+
+participant Customer
+participant System
+participant Cart
+participant PaymentGateway
+participant Order
+
+== Login Process ==
+Customer -> System : login(credentials) [0s]
+activate System
+System -> Customer : validateCredentials() [2s]
+deactivate System
+
+== Browsing Items ==
+Customer -> System : browseItems() [3s]
+activate System
+System -> Customer : displayProducts() [4s]
+deactivate System
+
+== Cart Operations ==
+Customer -> System : selectItem(itemID) [5s]
+Customer -> Cart : addItemToCart(itemID, quantity) [6s]
+activate Cart
+Cart -> Customer : item added [7s]
+deactivate Cart
+
+== Checkout Process ==
+Customer -> System : proceedToCheckout() [8s]
+activate System
+System -> Customer : enterShippingDetails(details) [9s]
+deactivate System
+
+== Payment ==
+Customer -> System : enterPaymentDetails(details) [10s]
+System -> PaymentGateway : processPayment(paymentInfo) [11s]
+activate PaymentGateway
+PaymentGateway -> System : paymentSuccessful() [13s]
+deactivate PaymentGateway
+
+== Order Confirmation ==
+System -> Order : createOrder(orderData) [14s]
+activate Order
+Order -> Customer : confirmOrder() [15s]
+deactivate Order
+@enduml

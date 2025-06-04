@@ -1,0 +1,28 @@
+@startuml
+title Package Diagram - ATM System
+' Define packages
+package "ATM System" {
+  [Card Reader]
+  [PIN Validator]
+  [Transaction Processor]
+}
+
+package "Bank System" {
+  [Bank Server]
+  [Account Database]
+}
+
+package "User Interface" {
+  [Touch Screen]
+  [Receipt Printer]
+}
+
+' Define dependencies
+[Card Reader] --> [PIN Validator]
+[PIN Validator] --> [Transaction Processor]
+[Transaction Processor] --> [Bank Server]
+[Bank Server] --> [Account Database]
+[Touch Screen] --> [Transaction Processor]
+[Receipt Printer] --> [Transaction Processor]
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+skinparam node {
+    BackgroundColor #F9F9F9
+    BorderColor black
+    FontColor black
+}
+skinparam artifact {
+    BackgroundColor #FFFFFF
+    BorderColor black
+    FontColor black
+}
+title ATM System Deployment Diagram
+' Define nodes
+node "ATM Machine" {
+    artifact "ATM Application"
+    artifact "Card Reader Driver"
+    artifact "Cash Dispenser Driver"
+    artifact "Printer Driver"
+}
+
+node "Bank Server" {
+    artifact "Transaction Processor"
+    artifact "Customer Database"
+}
+
+node "Network" {
+    artifact "Secure Connection"
+}
+
+' Define communication paths
+"ATM Machine" --> "Network" : encrypted request
+"Network" --> "Bank Server" : secure channel
+"Bank Server" --> "ATM Machine" : response
+
+@enduml

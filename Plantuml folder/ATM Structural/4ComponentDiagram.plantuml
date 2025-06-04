@@ -1,0 +1,33 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam component {
+    BackgroundColor #F5F5F5
+    BorderColor #000000
+    FontColor black
+}
+
+title ATM Component Diagram
+
+' Define components for the ATM system
+component "ATM Application" as ATMApp
+component "Card Reader" as CardReader
+component "Cash Dispenser" as CashDispenser
+component "Receipt Printer" as Printer
+component "Bank Network" as BankNetwork
+component "User Interface" as UI
+
+' Define interfaces
+interface "Transaction Service" as TransactionService
+interface "Card Validation" as CardValidation
+interface "Fund Verification" as FundVerification
+
+' Define relationships (dependencies between components)
+ATMApp --> TransactionService : uses
+ATMApp --> CardReader : interacts with
+ATMApp --> CashDispenser : commands
+ATMApp --> Printer : sends print commands
+ATMApp --> BankNetwork : requests funds
+CardReader --> CardValidation : validates card
+BankNetwork --> FundVerification : checks balance
+
+@enduml

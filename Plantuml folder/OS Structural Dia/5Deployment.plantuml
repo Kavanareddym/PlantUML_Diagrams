@@ -1,0 +1,42 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam nodeStyle rectangle
+skinparam defaultFontName Arial
+
+node "Client Device" {
+  component "Web Browser"
+}
+
+node "Web Server" {
+  component "UI Module"
+}
+
+node "Application Server" {
+  component "Auth Service"
+  component "Product Service"
+  component "Cart Service"
+  component "Order Service"
+  component "Payment Service"
+}
+
+node "Database Server" {
+  database "OnlineShoppingDB"
+}
+
+node "External Payment Gateway" {
+  component "Payment API"
+}
+
+' Connections
+"Web Browser" --> "UI Module" : HTTP
+"UI Module" --> "Auth Service"
+"UI Module" --> "Product Service"
+"UI Module" --> "Cart Service"
+"UI Module" --> "Order Service"
+"Payment Service" --> "Payment API"
+"Auth Service" --> "OnlineShoppingDB"
+"Product Service" --> "OnlineShoppingDB"
+"Cart Service" --> "OnlineShoppingDB"
+"Order Service" --> "OnlineShoppingDB"
+
+@enduml
