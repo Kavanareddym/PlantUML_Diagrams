@@ -6,9 +6,54 @@ Two systems are modeled:
 - **📟 ATM Machine System**
 - **🛒 Online Shopping System**
 
-The diagrams cover both **Behavioral** and **Structural** aspects of these systems.
+Both systems include:
+- **Behavioral Diagrams**
+- **Structural Diagrams**
+
+All diagrams are written in `.plantuml` files and can be directly previewed using **Visual Studio Code** and the **PlantUML extension by jebbs**.
 
 ---
+
+## 📁 Repository Structure
+
+PlantUML_Diagrams/
+└── Plantuml/
+├── ATM Behaviourial/
+│ ├── 1statemachine.plantuml
+│ ├── 2Activity.plantuml
+│ ├── 3usecase.plantuml
+│ ├── 4sequence.plantuml
+│ ├── 5Communication.plantuml
+│ ├── 6TimingDiagram.plantuml
+│ └── 7INteractiveOverview.plantuml
+
+├── ATM Structural/
+│   ├── 1ClassDiagram.plantuml
+│   ├── 2CompositeStructure.plantuml
+│   ├── 3ObjectDiagram.plantuml
+│   ├── 4ComponentDiagram.plantuml
+│   ├── 5DeploymentDiagram.plantuml
+│   ├── 6PackageDiagram.plantuml
+│   └── 7profileDiagram.plantuml
+
+├── OS Behaviourial/
+│   ├── 1StateMachineDiagram.plantuml
+│   ├── 2Activity.plantuml
+│   ├── 3UeCase.plantuml
+│   ├── 4Sequence.plantuml
+│   ├── 5Communication.plantuml
+│   ├── 6Timing.plantuml
+│   └── 7Interaction.plantuml
+
+└── OS Structural Dia/
+    ├── 1CLass.plantuml
+    ├── 2Composite.plantuml
+    ├── 3Object.plantuml
+    ├── 4Component.plantuml
+    ├── 5Deployment.plantuml
+    ├── 6Package.plantuml
+    └── 7profile.plantuml
+
 
 ## 🚀 How to Run in Visual Studio Code
 
