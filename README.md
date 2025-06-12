@@ -1,4 +1,4 @@
-# PlantUML Diagrams: ATM Machine & Online Shopping System
+# PlantUML Diagrams: ATM Machine & Online Shopping Systems
 
 This repository contains **UML diagrams** created using **PlantUML** in **Visual Studio Code**
 
