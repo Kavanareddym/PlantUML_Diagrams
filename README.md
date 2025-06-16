@@ -1,6 +1,6 @@
 # PlantUML Diagrams: ATM Machine & Online Shopping System
 
-This repository contains **UML diagrams** created using **PlantUML** in **Visual Studio Code**
+This repository contains **UML diagrams** created using **PlantUML** in **Visual Studio Code**.
 
 Two systems are modeled:
 - **📟 ATM Machine System**
@@ -14,7 +14,7 @@ All diagrams are written in `.plantuml` files and can be directly previewed usin
 
 ---
 
-## 🚀 How to Run in Visual Studio Code
+## 🚀 How to Run in Visual Studio Code 
 
 ### ✅ Prerequisites
 
