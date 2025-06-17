@@ -14,7 +14,7 @@ All diagrams are written in `.plantuml` files and can be directly previewed usin
 
 ---
 
-## 🚀 How to Run in Visual Studio Code 
+## 🚀 How to Run in Visual Studio Code ?
 
 ### ✅ Prerequisites
 
